@@ -365,16 +365,8 @@
                 }
             }
         },
-        "/products/{product_id}/reviews/{review_id}": {
+        "/reviews/{review_id}": {
             "parameters": [
-                {
-                    "in": "path",
-                    "name": "product_id",
-                    "required": true,
-                    "schema": {
-                        "type": "integer"
-                    }
-                },
                 {
                     "in": "path",
                     "name": "review_id",
@@ -385,6 +377,7 @@
                 }
             ],
             "get": {
+                "tags": ["reviews"],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -401,7 +394,37 @@
                     }
                 }
             },
+            "patch": {
+                "tags": ["reviews"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "helpful_votes": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": "Updated successfully"
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
             "put": {
+                "tags": ["reviews"],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -425,6 +448,7 @@
                 }
             },
             "delete": {
+                "tags": ["reviews"],
                 "responses": {
                     "204": {
                         "description": "Deleted successfully"
