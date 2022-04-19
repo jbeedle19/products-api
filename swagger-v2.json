@@ -137,6 +137,13 @@
                     },
                     {
                         "in": "query",
+                        "name": "page",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "in": "query",
                         "name": "sort",
                         "schema": {
                             "type": "string",
@@ -301,6 +308,13 @@
             "get": {
                 "tags": ["products", "reviews"],
                 "parameters": [
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
                     {
                         "in": "query",
                         "name": "sort",
